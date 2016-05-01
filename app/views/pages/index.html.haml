@@ -2,7 +2,7 @@
 -content_for(:meta_description){ ' description ' }
 -content_for(:meta_keywords){ ' keywords ' }
 
-%header#fh5co-hero{"data-section" => "home", :role => "banner", :style => "background: url(/assets/images/bg_2.jpg) top left; background-size: cover;"}
+%header#fh5co-hero{"data-section" => "home", :role => "banner", :style => "background: url(#{asset_path('images/bg_2.jpg')}) top left; background-size: cover;"}
   .fh5co-overlay
   .fh5co-intro
     .container
@@ -231,7 +231,7 @@
               %i.icon-energy
             %h4.fh5co-uppercase-sm Cross platform support
             %p Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
-  #fh5co-cta.fh5co-bg-section.cta{:style => "background-image: url(/assets/images/hero_bg.jpg); background-attachment: fixed;"}
+  #fh5co-cta.fh5co-bg-section.cta{:style => "background-image: url(#{asset_path('images/hero_bg.jpg')}); background-attachment: fixed;"}
     .fh5co-overlay
     .container
       .row
