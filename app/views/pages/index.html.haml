@@ -135,7 +135,7 @@
               %p.fh5co-author.fh5co-uppercase-sm
                 %span> Gustav Barrow
                 , XYZ Inc.
-  #fh5co-counter.fh5co-bg-section{:style => "background-image: url(/assets/images/bg_1.jpg); background-attachment: fixed;"}
+  #fh5co-counter.fh5co-bg-section{:style => "background-image: url(#{asset_path('images/bg_1.jpg')}); background-attachment: fixed;"}
     .fh5co-overlay
     .container
       .row
@@ -158,21 +158,20 @@
           %h2.fh5co-lead.animate-single.product-animate-1 Other awesome Apps
           %p.fh5co-sub.animate-single.product-animate-2 Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
         .col-md-3.col-sm-6.col-xs-6.col-xxs-12
-          %a.fh5co-figure.to-animate.image-popup{:href => "/asstes/images/product_1.jpg"}
+          %a.fh5co-figure.to-animate.image-popup{:href => "#{asset_path('images/product_1.jpg')}"}
             %figure
               = image_tag 'images/product_1.jpg', class: 'img-responsive'
-              %img.img-responsive{:alt => "Free HTML5 Responsive Template", :src => "images/product_1.jpg"}/
             %h3.fh5co-figure-lead Product Name
             %p.fh5co-figure-text Far far away behind the word mountains
         .col-md-3.col-sm-6.col-xs-6.col-xxs-12
-          %a.fh5co-figure.to-animate.image-popup{:href => "images/product_2.jpg"}
+          %a.fh5co-figure.to-animate.image-popup{:href => "#{asset_path('images/product_2.jpg')}"}
             %figure
               = image_tag 'images/product_2.jpg', class: 'img-responsive'
             %h3.fh5co-figure-lead Product Name
             %p.fh5co-figure-text Far far away behind the word mountains
         .clearfix.visible-sm-block
         .col-md-3.col-sm-6.col-xs-6.col-xxs-12
-          %a.fh5co-figure.to-animate.image-popup{:href => "images/product_3.jpg"}
+          %a.fh5co-figure.to-animate.image-popup{:href => "#{asset_path('images/product_3.jpg')}"}
             %figure
               = image_tag 'images/product_3.jpg', class: 'img-responsive'
             %h3.fh5co-figure-lead Product Name

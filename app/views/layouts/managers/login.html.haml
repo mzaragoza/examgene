@@ -1,0 +1,68 @@
+!!!
+%html
+  %head
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    %meta{:content => yield(:meta_description).to_s, :name => "description"}/
+    %meta{:content => yield(:meta_keywords).to_s, :name => "keywords"}/
+    %title
+      - unless yield(:title).to_s.empty?
+        = yield (:title)
+        |
+      = t(:brand)
+      |
+      = t(:tagline)
+
+    = stylesheet_link_tag    'managers/application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'managers/application', 'data-turbolinks-track' => true
+    = favicon_link_tag 'favicon.ico', type: 'image/png'
+    / HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries
+    / WARNING: Respond.js doesn't work if you view the page via file://
+    /[if lt IE 9]
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    :javascript
+      var resizefunc = [];
+  %body
+    .account-pages
+    .clearfix
+    .wrapper-page
+      .text-center
+        = link_to root_path, class: 'logo' do
+          %span
+            Exam 
+            %span Gene
+
+        %h5.text-muted.m-t-0.font-600= t(:tagline)
+      = yield
+      -#.m-t-40.card-box
+        .text-center
+          %h4.text-uppercase.font-bold.m-b-0 Sign In
+        .panel-body
+          %form.form-horizontal.m-t-20{:action => "index.html"}
+            .form-group
+              .col-xs-12
+                %input.form-control{:placeholder => "Username", :required => "", :type => "text"}/
+            .form-group
+              .col-xs-12
+                %input.form-control{:placeholder => "Password", :required => "", :type => "password"}/
+            .form-group
+              .col-xs-12
+                .checkbox.checkbox-custom
+                  %input#checkbox-signup{:type => "checkbox"}/
+                  %label{:for => "checkbox-signup"}
+                    Remember me
+            .form-group.text-center.m-t-30
+              .col-xs-12
+                %button.btn.btn-custom.btn-bordred.btn-block.waves-effect.waves-light{:type => "submit"} Log In
+            .form-group.m-t-30.m-b-0
+              .col-sm-12
+                %a.text-muted{:href => "page-recoverpw.html"}
+                  %i.fa.fa-lock.m-r-5
+                  Forgot your password?
+      -#.row
+        .col-sm-12.text-center
+          %p.text-muted
+            Don't have an account?
+            %a.text-primary.m-l-5{:href => "page-register.html"}
+              %b Sign Up

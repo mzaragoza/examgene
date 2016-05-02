@@ -1,0 +1,110 @@
+!!!
+%html
+  %head
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    %link{:href => "assets/images/favicon.ico", :rel => "shortcut icon"}/
+    %meta{:content => yield(:meta_description).to_s, :name => "description"}/
+    %meta{:content => yield(:meta_keywords).to_s, :name => "keywords"}/
+    %title
+      - unless yield(:title).to_s.empty?
+        = yield (:title)
+        |
+      = t(:brand)
+      |
+      = t(:tagline)
+
+    = stylesheet_link_tag    'managers/application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'managers/application', 'data-turbolinks-track' => true
+    = favicon_link_tag 'favicon.ico', type: 'image/png'
+
+
+    / HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries
+    / WARNING: Respond.js doesn't work if you view the page via file://
+    /[if lt IE 9]
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    %script{:src => "/assets/js/modernizr.min.js"}
+  %body
+    %header#topnav
+      .topbar-main
+        .container
+          .topbar-left
+            = link_to managers_root_path, class: 'logo' do
+              %span
+                Exam
+                %span Gene
+          .menu-extras
+            %ul.nav.navbar-nav.navbar-right.pull-right
+              -#%li
+                %form.navbar-left.app-search.pull-left.hidden-xs{:role => "search"}
+                  %input.form-control{:placeholder => "Search...", :type => "text"}/
+                  %a{:href => ""}
+                    %i.fa.fa-search
+              -#%li
+                / Notification
+                .notification-box
+                  %ul.list-inline.m-b-0
+                    %li
+                      %a.right-bar-toggle{:href => "javascript:void(0);"}
+                        %i.zmdi.zmdi-notifications-none
+                      .noti-dot
+                        %span.dot
+                        %span.pulse
+                / End Notification bar
+              %li.dropdown.user-box
+                %a.dropdown-toggle.waves-effect.waves-light.profile{"aria-expanded" => "true", "data-toggle" => "dropdown", :href => ""}
+                  %img.img-circle.user-img{:alt => "user-img", :src => "/assets/images/users/avatar-1.jpg"}/
+                  .user-status.away
+                    %i.zmdi.zmdi-dot-circle
+                %ul.dropdown-menu
+                  %li
+                    = link_to managers_dashboard_path do 
+                      %i.ti-user.m-r-5
+                      Profile
+                  %li
+                    = link_to managers_dashboard_path do 
+                      %i.ti-settings.m-r-5
+                      Settings
+                  %li
+                    = link_to destroy_manager_session_path, :method => :delete do
+                      %i.ti-power-off.m-r-5
+                      Logout
+            .menu-item
+              / Mobile menu toggle
+              %a.navbar-toggle
+                .lines
+                  %span
+                  %span
+                  %span
+              / End mobile menu toggle
+      .navbar-custom
+        .container
+          #navigation
+            / Navigation Menu
+            %ul.navigation-menu
+              %li
+                = link_to managers_dashboard_path do 
+                  %i.fa.fa-square
+                  %span Dashboard
+              %li
+                = link_to managers_users_path do 
+                  %i.fa.fa-square
+                  %span users
+              %li
+                = link_to managers_plans_path do 
+                  %i.fa.fa-square
+                  %span plans
+              %li
+                = link_to managers_managers_path do 
+                  %i.fa.fa-square
+                  %span managers
+    .wrapper
+      .container
+        / Page-Title
+        .row
+          .col-sm-12
+            = yield
+    :javascript
+      $(document).ready(function() {
+          $('#datatable').dataTable();

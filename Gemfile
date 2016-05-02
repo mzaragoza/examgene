@@ -44,6 +44,16 @@ group :development, :test do
   # gem 'capistrano-rails'                # Use Capistrano for deployment
 end
 
+group :test do
+  gem "spring-commands-rspec"             # For "spring"-loading rspec
+  gem 'capybara'                          # Acceptance test framework for web applications
+  gem 'database_cleaner'                  # Strategies for cleaning databases in Ruby
+  gem 'rspec-collection_matchers'         # Collection cardinality matchers, extracted from rspec-expectations
+  gem 'rspec-rails', '~> 3.0'             # RSpec for Rails-3
+  gem 'rspec-retry'                       # retry randomly failing rspec example
+  gem 'shoulda'                           # Collection of testing matchers
+end
+
 group :doc do
   gem 'sdoc', '~> 0.4.0'                                                             # bundle exec rake doc:rails generates the API under doc/api.
 end
