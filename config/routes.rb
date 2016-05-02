@@ -9,7 +9,8 @@ Rails.application.routes.draw do
 
   authenticate :manager do
     namespace :managers do
-      resources :pages
+      resources :managers
+      resources :plans
       resources :users
       get '/dashboard' => 'dashboards#index', as: :dashboard
       root :to => 'dashboards#index'

@@ -85,12 +85,20 @@
             %ul.navigation-menu
               %li
                 = link_to managers_dashboard_path do 
-                  %i.zmdi.zmdi-view-dashboard
+                  %i.fa.fa-square
                   %span Dashboard
               %li
-                = link_to managers_dashboard_path do 
-                  %i.zmdi.zmdi-invert-colors
-                  %span Exams
+                = link_to managers_users_path do 
+                  %i.fa.fa-square
+                  %span users
+              %li
+                = link_to managers_plans_path do 
+                  %i.fa.fa-square
+                  %span plans
+              %li
+                = link_to managers_managers_path do 
+                  %i.fa.fa-square
+                  %span managers
     .wrapper
       .container
         / Page-Title
