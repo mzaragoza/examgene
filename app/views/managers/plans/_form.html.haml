@@ -1,0 +1,32 @@
+.card-box
+  .row
+    .col-lg-12
+      = simple_form_for([:managers, plan], html: {class: 'form-horizontal clearfix', novalidate: true}) do |f|
+        .form-group
+          %label.col-md-2.control-label Name
+          .col-md-10
+            = f.input :name, label: false
+        .form-group
+          %label.col-md-2.control-label Slug
+          .col-md-10
+            - if params[:action] == 'new' || params[:action] == 'create'
+              = f.input :slug, label: false
+            - else
+              = plan.slug
+        .form-group
+          %label.col-md-2.control-label Price
+          .col-md-10
+            = f.input :price, label: false
+        .form-group
+          %label.col-md-2.control-label Active
+          .col-md-10
+            = f.input :active, label: false
+        .form-group
+          %label.col-md-2.control-label Featured
+          .col-md-10
+            = f.input :featured, label: false
+        .form-group
+          %label 
+          = f.button :submit, class: 'btn btn-primary btn-large pull-right', disable_with: 'Creating...'
+
+

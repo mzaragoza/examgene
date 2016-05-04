@@ -23,6 +23,8 @@
  *= require css/pages
  *= require css/menu
  *= require css/responsive
+ *
+ *= require font-awesome
  *= require_self
  */
 

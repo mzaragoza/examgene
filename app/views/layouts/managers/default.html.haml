@@ -62,7 +62,7 @@
                     = link_to edit_managers_manager_path(current_manager) do 
                       %i.ti-user.m-r-5
                       Profile
-                  %li
+                  -#%li
                     = link_to managers_dashboard_path do 
                       %i.ti-settings.m-r-5
                       Settings
@@ -90,11 +90,11 @@
               %li
                 = link_to managers_users_path do 
                   %i.fa.fa-square
-                  %span users
+                  %span Users
               %li
                 = link_to managers_plans_path do 
                   %i.fa.fa-square
-                  %span plans
+                  %span Plans
               %li
                 = link_to managers_managers_path do 
                   %i.fa.fa-square

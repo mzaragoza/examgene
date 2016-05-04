@@ -2,12 +2,10 @@ require 'spec_helper'
 
 describe "manager", type: :feature do
   before do
-    FactoryGirl.create :manager, email: 'manager@test.com'
-    visit(managers_root_path)
+    login_manager
   end
 
   it "creates a new manager" do
-    login_manager
     click_link "Managers"
     click_link "New"
     fill_in('manager_email', with: 'moisesZaragoza@test.com')
@@ -22,10 +20,9 @@ describe "manager", type: :feature do
   end
 
   it "can not create 2 managers with the sama email" do
-    login_manager
     click_link "Managers"
     click_link "New"
-    fill_in('manager_email', with: 'manager@test.com')
+    fill_in('manager_email', with: 'test@test.com')
     fill_in('manager_password', with: 'password')
     fill_in('manager_first_name', with: 'Moises')
     fill_in('manager_last_name', with: 'Zaragoza')
@@ -37,7 +34,6 @@ describe "manager", type: :feature do
   end
 
   it "edits a manager" do
-    login_manager
     click_link "Managers"
     click_link "Edit"
     fill_in('manager_email', with: 'moisesZaragoza@test.com')
@@ -52,14 +48,12 @@ describe "manager", type: :feature do
   end
 
   it "edits a manager with out updateing the password" do
-    login_manager
     click_link "Managers"
     click_link "Edit"
     fill_in('manager_email', with: 'moisesZaragoza@test.com')
     fill_in('manager_first_name', with: 'Moises')
     fill_in('manager_last_name', with: 'Zaragoza')
     click_button "Update Manager"
-    page!
     within ".page-title" do
       expect(page).to  have_content('Managers')
     end
