@@ -5,4 +5,6 @@ class Plan < ActiveRecord::Base
 
   validates :name, uniqueness: { case_sensitive: false }
   validates :slug, uniqueness: { case_sensitive: false }
+
+  scope :active, ->{ where(active: true) }
 end

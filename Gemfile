@@ -5,6 +5,8 @@ gem 'rails', '4.2.5.1'                     # Bundle edge Rails instead: gem 'rai
 # Databases
 gem 'pg'                                   # Use pg as the database for Active Record
 
+# Payments
+gem 'stripe'                                                                         # Payments
 
 #Tools
 gem 'awesome_print'                                                                  # Pretty print your Ruby objects with style

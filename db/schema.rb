@@ -48,11 +48,12 @@ ActiveRecord::Schema.define(version: 20160504011920) do
   add_index "managers", ["unlock_token"], name: "index_managers_on_unlock_token", unique: true, using: :btree
 
   create_table "plans", force: :cascade do |t|
-    t.string   "name",                               default: ""
-    t.string   "slug",                               default: ""
-    t.decimal  "price",      precision: 8, scale: 2
-    t.boolean  "active",                             default: true
-    t.boolean  "featured",                           default: false
+    t.string   "name",                                default: ""
+    t.string   "slug",                                default: ""
+    t.string   "description",                         default: ""
+    t.decimal  "price",       precision: 8, scale: 2
+    t.boolean  "active",                              default: true
+    t.boolean  "featured",                            default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

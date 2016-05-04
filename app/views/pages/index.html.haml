@@ -249,34 +249,14 @@
         .col-md-8.col-md-offset-2.fh5co-section-heading.text-center
           %h2.fh5co-lead.animate-single.pricing-animate-1 Plans built for every one
           %p.fh5co-sub.animate-single.pricing-animate-2 Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
-        .col-md-3.to-animate
-          %a.fh5co-figure{:href => "#"}
-            %span.fh5co-price
-              $1
-              %span /month
-            %h3.fh5co-figure-lead Starter
-            %p.fh5co-figure-text Far far away behind the word mountains
-        .col-md-3.to-animate
-          %a.fh5co-figure{:href => "#"}
-            %span.fh5co-price
-              $25
-              %span /month
-            %h3.fh5co-figure-lead Regular
-            %p.fh5co-figure-text Far far away behind the word mountains
-        .col-md-3.to-animate
-          %a.fh5co-figure.active.pricing-feature{:href => "#"}
-            %span.fh5co-price
-              $59
-              %span /month
-            %h3.fh5co-figure-lead Plus
-            %p.fh5co-figure-text Far far away behind the word mountains
-        .col-md-3.to-animate
-          %a.fh5co-figure{:href => "#"}
-            %span.fh5co-price
-              $125
-              %span /month
-            %h3.fh5co-figure-lead Enterprise
-            %p.fh5co-figure-text Far far away behind the word mountains
+        - plans.each do |plan|
+          .col-md-3.to-animate
+            = link_to '#', class: "fh5co-figure #{ 'active pricing-feature' if plan.featured}" do
+              %span.fh5co-price
+                = number_to_currency(plan.price)
+                %span /Montly
+              %h3.fh5co-figure-lead= plan.name
+              %p.fh5co-figure-text= plan.description
   #fh5co-faqs{"data-section" => "faqs"}
     .container
       .row
