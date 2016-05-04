@@ -3,4 +3,11 @@ class Manager < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  mount_uploader :photo,         ImageUploader
+
+  def name
+    first_name + ' ' + last_name
+  end
+
 end

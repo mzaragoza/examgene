@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160502203544) do
+ActiveRecord::Schema.define(version: 20160503231611) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20160502203544) do
     t.datetime "locked_at"
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
+    t.string   "photo",                  default: ""
   end
 
   add_index "managers", ["confirmation_token"], name: "index_managers_on_confirmation_token", unique: true, using: :btree

@@ -24,9 +24,9 @@ gem 'turbolinks'                                                                
 
 
 # Images
-# gem 'carrierwave'
-# gem 'rmagick', require: false
-# gem 'fog'
+gem 'carrierwave'
+gem 'rmagick', require: false
+gem 'fog'
 
 # Security
 gem 'devise'                              # authentication solution

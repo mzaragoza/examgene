@@ -1,0 +1,31 @@
+%h4.page-title Managers
+.row
+  .col-sm-12
+    .card-box.table-responsive
+      .dropdown.pull-right
+        %a.dropdown-toggle.card-drop{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#"}
+          %i.zmdi.zmdi-more-vert
+        %ul.dropdown-menu{:role => "menu"}
+          %li
+            = link_to 'New', new_managers_manager_path
+      %h4.header-title.m-t-0.m-b-30 Responsive example
+      %table#datatable-responsive.table.table-striped.table-bordered.dt-responsive.nowrap{:cellspacing => "0", :width => "100%"}
+        %thead
+          %tr
+            %th Name
+            %th Email
+            %th active
+            %th Photo
+            %th 
+        %tbody
+          - managers.each do |manager|
+            %tr{id: "managers_#{manager.id}"}
+              %td= manager.name
+              %td= manager.email
+              %td= manager.active
+              %td
+                - if manager.photo_url.present?
+                  = image_tag manager.photo_url(:p50x50)
+              %td 
+                = link_to edit_managers_manager_path(manager), class: 'btn btn-sm btn-info' do
+                  Edit
