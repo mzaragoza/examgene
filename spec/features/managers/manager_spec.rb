@@ -39,14 +39,27 @@ describe "manager", type: :feature do
   it "edits a manager" do
     login_manager
     click_link "Managers"
-    within "#managers_1" do
-      click_link "Edit"
-    end
+    click_link "Edit"
     fill_in('manager_email', with: 'moisesZaragoza@test.com')
     fill_in('manager_password', with: 'password')
     fill_in('manager_first_name', with: 'Moises')
     fill_in('manager_last_name', with: 'Zaragoza')
     click_button "Update Manager"
+    within ".page-title" do
+      expect(page).to  have_content('Managers')
+    end
+    expect(page).to  have_content('Moises Zaragoza')
+  end
+
+  it "edits a manager with out updateing the password" do
+    login_manager
+    click_link "Managers"
+    click_link "Edit"
+    fill_in('manager_email', with: 'moisesZaragoza@test.com')
+    fill_in('manager_first_name', with: 'Moises')
+    fill_in('manager_last_name', with: 'Zaragoza')
+    click_button "Update Manager"
+    page!
     within ".page-title" do
       expect(page).to  have_content('Managers')
     end

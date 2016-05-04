@@ -59,7 +59,7 @@
                     %img.img-circle.user-img{:alt => "user-img", :src => "/assets/images/users/avatar-1.jpg"}/
                 %ul.dropdown-menu
                   %li
-                    = link_to managers_dashboard_path do 
+                    = link_to edit_managers_manager_path(current_manager) do 
                       %i.ti-user.m-r-5
                       Profile
                   %li

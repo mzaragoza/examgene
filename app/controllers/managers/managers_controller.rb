@@ -1,7 +1,7 @@
 class Managers::ManagersController < ManagerController
-
-    expose(:managers){ Manager.all.order('ID DESC') }
-    expose(:manager, attributes: :manager_params)
+  before_filter :check_password_submitted, :only => :update
+  expose(:managers){ Manager.all.order('ID DESC') }
+  expose(:manager, attributes: :manager_params)
 
   def create
     if manager.save
@@ -23,6 +23,15 @@ class Managers::ManagersController < ManagerController
   end
 
   private
+  def check_password_submitted
+    if params[:manager][:password].blank?
+      params[:manager].delete("password")
+      manager.updating_password = false
+    else
+      manager.updating_password = true
+    end
+  end
+
   def manager_params
     params.require(:manager).permit(
       :active ,
