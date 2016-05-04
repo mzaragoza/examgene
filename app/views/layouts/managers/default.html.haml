@@ -15,7 +15,6 @@
       = t(:tagline)
 
     = stylesheet_link_tag    'managers/application', media: 'all', 'data-turbolinks-track' => true
-    = javascript_include_tag 'managers/application', 'data-turbolinks-track' => true
     = favicon_link_tag 'favicon.ico', type: 'image/png'
 
 
@@ -105,6 +104,7 @@
         .row
           .col-sm-12
             = yield
+  = javascript_include_tag 'managers/application', 'data-turbolinks-track' => true
   :javascript
     $(document).ready(function() {
         $('#datatable-responsive').DataTable();
