@@ -24,16 +24,18 @@ class Managers::PlansController < ManagerController
 
   private
   def create_stripe_plan(plan)
-    Stripe.api_key = ENV['STRIPE_SECRET_KEY']
+    unless Rails.env == 'test'
+      Stripe.api_key = ENV['STRIPE_SECRET_KEY']
 
-    # interval values [day, month, year, week, 3-month, 6-month]
-    Stripe::Plan.create(
-      amount: (plan.price.to_f * 100).to_i,
-      interval: "month",
-      name: plan.name,
-      currency: "usd",
-      id: plan.slug
-    )
+      # interval values [day, month, year, week, 3-month, 6-month]
+      Stripe::Plan.create(
+        amount: (plan.price.to_f * 100).to_i,
+        interval: "month",
+        name: plan.name,
+        currency: "usd",
+        id: plan.slug
+      )
+    end
   end
 
   def plan_params
