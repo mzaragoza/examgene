@@ -6,7 +6,7 @@
       %ul
         - resource.errors.full_messages.each do |e|
           %li=e
-      -#= f.simple_fields_for :account do |account_form|
+      = f.simple_fields_for :account do |account_form|
         .form-group
           .col-xs-12
             = account_form.input :domain, label: false, input_html: { class: 'form-control', placeholder: "Doamin", :autofocus => "" }
