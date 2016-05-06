@@ -30,6 +30,9 @@ Rails.application.routes.draw do
 
   authenticate :manager do
     namespace :managers do
+      resources :accounts do
+        resources :users
+      end
       resources :managers
       resources :plans
       resources :users

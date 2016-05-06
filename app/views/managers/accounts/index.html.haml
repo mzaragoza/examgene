@@ -1,0 +1,41 @@
+%h4.page-title Accounts
+.row
+  .col-sm-12
+    .card-box.table-responsive
+      -#.dropdown.pull-right
+        %a.dropdown-toggle.card-drop{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#"}
+          %i.zmdi.zmdi-more-vert
+        %ul.dropdown-menu{:role => "menu"}
+          %li
+            = link_to 'New', new_managers_account_path
+      %table#datatable-responsive.table.table-striped.table-bordered.dt-responsive.nowrap{:cellspacing => "0", :width => "100%"}
+        %thead
+          %tr
+            %th Domain
+            %th Plan
+            %th Name
+            %th Website
+            -# %th Stripe_customer_id
+            =# %th Stripe_customer
+            %th Active
+            %th
+        %tbody
+          - accounts.each do |account|
+            %tr{id: "accounts_#{account.id}"}
+              %td= account.domain
+              %td= account.plan.name
+              %td= account.name
+              %td= account.website
+              -# %td= account.stripe_customer_id
+              -# %td= account.stripe_customer
+              %td
+                - if account.active
+                  %span.badge.badge-primary
+                    %i.fa.fa-check
+                - else
+                  %span.badge.badge-danger
+                    %i.fa.fa-times
+              -# %td 
+                = link_to edit_managers_account_path(account), class: 'btn btn-sm btn-info' do
+                  Edit
+
