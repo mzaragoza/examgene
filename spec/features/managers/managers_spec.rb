@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "manager", type: :feature do
+describe Manager, type: :feature do
   before do
     login_manager
   end
@@ -38,26 +38,26 @@ describe "manager", type: :feature do
     click_link "Edit"
     fill_in('manager_email', with: 'moisesZaragoza@test.com')
     fill_in('manager_password', with: 'password')
-    fill_in('manager_first_name', with: 'Moises')
-    fill_in('manager_last_name', with: 'Zaragoza')
+    fill_in('manager_first_name', with: 'Claudia')
+    fill_in('manager_last_name', with: 'Alvarez')
     click_button "Update Manager"
     within ".page-title" do
       expect(page).to  have_content('Managers')
     end
-    expect(page).to  have_content('Moises Zaragoza')
+    expect(page).to  have_content('Claudia Alvarez')
   end
 
   it "edits a manager with out updateing the password" do
     click_link "Managers"
     click_link "Edit"
     fill_in('manager_email', with: 'moisesZaragoza@test.com')
-    fill_in('manager_first_name', with: 'Moises')
-    fill_in('manager_last_name', with: 'Zaragoza')
+    fill_in('manager_first_name', with: 'Claudia')
+    fill_in('manager_last_name', with: 'Alvarez')
     click_button "Update Manager"
     within ".page-title" do
       expect(page).to  have_content('Managers')
     end
-    expect(page).to  have_content('Moises Zaragoza')
+    expect(page).to  have_content('Claudia Alvarez')
   end
 end
 
