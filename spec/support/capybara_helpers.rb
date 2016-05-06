@@ -11,4 +11,13 @@ def login_manager
     click_button "Log In"
     expect(page).to  have_content('Dashboard')
 end
+def login_user
+    FactoryGirl.create :user, email: 'test@test.com'
+    visit(users_root_path)
+    expect(page).to have_content('Sign In')
+    fill_in('Email', with: 'test@test.com')
+    fill_in('Password', with: 'password')
+    click_button "Log In"
+    expect(page).to  have_content('Dashboard')
+end
 

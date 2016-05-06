@@ -3,6 +3,9 @@
     %h4.text-uppercase.font-bold.m-b-0 Sign In
   .panel-body
     = simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+      %ul
+        - resource.errors.full_messages.each do |e|
+          %li=e
       .form-group
         .col-xs-12
           = f.input :email, label: false, input_html: { class: 'form-control', placeholder: "Email", type: "email", :autofocus => "" }

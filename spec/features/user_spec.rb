@@ -1,21 +1,21 @@
 require 'spec_helper'
 
-describe Manager, type: :feature do
+describe User, type: :feature do
   before do
-    FactoryGirl.create :manager, email: 'manager@test.com'
-    visit(managers_root_path)
+    FactoryGirl.create :user, email: 'user@test.com'
+    visit(users_root_path)
   end
 
   it "logs in" do
     expect(page).to have_content('Sign In')
-    fill_in('Email', with: 'manager@test.com')
+    fill_in('Email', with: 'user@test.com')
     fill_in('Password', with: 'password')
     click_button "Log In"
     expect(page).to  have_content('Dashboard')
   end
 
-  it "should not login with an manager that is not active" do
-    FactoryGirl.create :manager, email: 'inactice@test.com', active: false
+  it "should not login with an user that is not active" do
+    FactoryGirl.create :user, email: 'inactice@test.com', active: false
     expect(page).to have_content('Sign In')
     fill_in('Email', with: 'inactice@test.com')
     fill_in('Password', with: 'password')
@@ -25,9 +25,10 @@ describe Manager, type: :feature do
   end
 
   it "logs out" do
-    login_manager
+    login_user
     click_link "Logout"
-    expect(page).to have_content('Sign In')
+    expect(page).to have_content('Explore amazing features')
   end
 
 end
+

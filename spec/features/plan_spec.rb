@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "plan", type: :feature do
+describe Plan, type: :feature do
   before do
     FactoryGirl.create :plan, name: 'Starter', price: 19.99
     visit(root_path)
