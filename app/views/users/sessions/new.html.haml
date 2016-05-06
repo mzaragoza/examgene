@@ -1,6 +1,6 @@
 .m-t-40.card-box
   .text-center
-    -#%h4.text-uppercase.font-bold.m-b-0 Log In
+    %h4.text-uppercase.font-bold.m-b-0 Sign In
   .panel-body
     = simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
       %ul
@@ -28,7 +28,7 @@
           = f.input :password, label: false, input_html: { class: 'form-control', placeholder: "Password", type: "password" }
       .form-group.text-center.m-t-30
         .col-xs-12
-          %button.btn.btn-custom.btn-bordred.btn-block.waves-effect.waves-light{:type => "submit"} Sing In
+          %button.btn.btn-custom.btn-bordred.btn-block.waves-effect.waves-light{:type => "submit"} Log In
           = link_to "Forgot Password?", new_password_path(resource_name), class: 'pull-left'
           = link_to "Sign Up", new_user_registration_path, class: 'pull-right'
       -#.form-group.m-t-30.m-b-0
