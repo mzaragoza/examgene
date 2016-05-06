@@ -1,5 +1,6 @@
 # examgene
 
+rspec -fd
 
 
 https://stripe.com/docs/api/ruby#create_plan

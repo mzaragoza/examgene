@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   belongs_to :account
+  has_many :tests
 
   accepts_nested_attributes_for :account
   attr_accessor :updating_password

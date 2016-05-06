@@ -10,5 +10,7 @@ describe Account do
     end
   end
 
+  it { should have_many(:tests) }
+  it { should have_many(:users) }
 end
 

@@ -15,5 +15,8 @@ describe User do
     user.last_name = "Zaragoza"
     expect(user.name).to eq "Moises Zaragoza"
   end
+
+  it { should belong_to(:account) }
+  it { should have_many(:tests) }
 end
 
