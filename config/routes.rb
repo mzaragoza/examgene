@@ -10,6 +10,11 @@ Rails.application.routes.draw do
   authenticate :user do
     namespace :users do
       resources :users
+      resources :tests do
+        resources :questions do
+          resources :answers
+        end
+      end
       get '/dashboard' => 'dashboards#index', as: :dashboard
       root :to => 'dashboards#index'
       get "*unmatched_route", :to => "application#page_missing"
