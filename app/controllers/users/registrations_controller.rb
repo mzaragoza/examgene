@@ -41,7 +41,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
         :plan_id,
       ]
     ]
-    params.require(resource_name).permit(allow)
+    params.require(resource_name).permit(allow).merge(owner: true)
   end
 
   def after_update_path_for(resource)
