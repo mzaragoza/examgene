@@ -19,7 +19,7 @@ describe User, type: :feature do
     expect(page).to  have_content('Moises Zaragoza')
   end
 
-  it "can not create 2 users with the sama email" do
+  it "can not create 2 users with the same email" do
     click_link "Users"
     click_link "New"
     fill_in('user_email', with: 'test@test.com')

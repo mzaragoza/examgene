@@ -19,7 +19,7 @@ describe Manager, type: :feature do
     expect(page).to  have_content('Moises Zaragoza')
   end
 
-  it "can not create 2 managers with the sama email" do
+  it "can not create 2 managers with the same email" do
     click_link "Managers"
     click_link "New"
     fill_in('manager_email', with: 'test@test.com')
