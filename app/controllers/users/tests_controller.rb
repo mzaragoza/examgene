@@ -3,6 +3,14 @@ class Users::TestsController < UserController
   expose(:test, attributes: :test_params)
 
   def show
+    @questions = params[:user][:questions].to_i
+    if @questions == 0
+      @questions = test.questions.count
+    end
+    @tests = params[:user][:tests].to_i
+    if @tests == 0
+      @tests = 1
+    end
     render layout: false
   end
 
