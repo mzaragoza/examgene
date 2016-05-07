@@ -19,14 +19,13 @@
           - questions.each do |question|
             %tr{id: "questions_#{question.id}"}
               %td
-                = link_to users_test_path(test), class: '' do
+                = link_to users_test_question_answers_path(test, question), class: '' do
                   = question.name
               %td
                 - if question.photo_url.present?
                   = image_tag question.photo_url(:p250x250)
-              %td
+              %td= question.answers.count
               %td 
                 = link_to edit_users_test_question_path(test, question), class: 'btn btn-sm btn-info' do
                   Edit
-
 
