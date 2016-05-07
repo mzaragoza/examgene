@@ -5,5 +5,3 @@ FactoryGirl.define do
     before(:create) { |test| test.account = Account.last || FactoryGirl.create(:account)  }
   end
 end
-
-
