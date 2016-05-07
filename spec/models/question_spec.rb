@@ -11,6 +11,7 @@ describe Question do
   end
 
   it { should belong_to(:test) }
+  it { should have_many(:answers) }
   it { should validate_uniqueness_of(:name).scoped_to(:test_id).with_message("This test allredy has this question") }
 end
 
