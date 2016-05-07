@@ -12,6 +12,7 @@ describe Test do
 
   it { should belong_to(:account) }
   it { should belong_to(:user) }
+  it { should have_many(:questions) }
 end
 
 
