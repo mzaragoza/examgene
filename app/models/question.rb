@@ -6,4 +6,8 @@ class Question < ActiveRecord::Base
   validates :name, presence: true, uniqueness: { scope: :test_id, case_sensitive: false, message: "This test allredy has this question"}
 
   mount_uploader :photo,         ImageUploader
+
+  def shuffle_answers
+    answers.shuffle()
+  end
 end

@@ -2,6 +2,10 @@ class Users::TestsController < UserController
   expose(:tests){ current_account.tests.order('ID DESC') }
   expose(:test, attributes: :test_params)
 
+  def show
+    render layout: false
+  end
+
   def create
     test.account = current_account
     test.user = current_user
