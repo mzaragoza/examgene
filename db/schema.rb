@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(version: 20160506203905) do
   create_table "questions", force: :cascade do |t|
     t.integer  "test_id"
     t.string   "name",       default: "", null: false
+    t.string   "photo",      default: "", null: false
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
   end

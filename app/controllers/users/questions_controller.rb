@@ -26,6 +26,7 @@ class Users::QuestionsController < UserController
   def question_params
     params.require(:question).permit(
       :name,
+      :photo,
     )
   end
 end
