@@ -1,0 +1,14 @@
+%h1= test.name
+%br
+%br
+- test.shuffle_questions.each_with_index do |question, question_index|
+  %strong
+    #{question_index + 1})
+    = question.name
+  %br
+  - question.shuffle_answers.each_with_index do |answer, answer_index|
+    = answer.name
+    %br
+    %br
+  %br
+  %br

@@ -14,6 +14,7 @@
             %th Name
             %th Questions
             %th 
+            %th 
         %tbody
           - tests.each do |test|
             %tr{id: "tests_#{test.id}"}
@@ -24,5 +25,7 @@
               %td 
                 = link_to edit_users_test_path(test), class: 'btn btn-sm btn-info' do
                   Edit
-
+              %td 
+                = link_to users_test_path(test), target: '_blank', class: 'btn btn-sm btn-info' do
+                  random test
 
