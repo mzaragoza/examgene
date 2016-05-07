@@ -3,9 +3,13 @@
     .col-lg-12
       = simple_form_for([:users, test, question], html: {class: 'form-horizontal clearfix', novalidate: true}) do |f|
         .form-group
-          %label.col-md-2.control-label Name
+          %label.col-md-2.control-label Question
           .col-md-10
             = f.input :name, label: false
+        .form-group
+          %label.col-md-2.control-label Image
+          .col-md-10
+            = f.input :photo, label: false
         .form-group
           %label 
           = f.button :submit, class: 'btn btn-primary btn-large pull-right', disable_with: 'Creating...'
