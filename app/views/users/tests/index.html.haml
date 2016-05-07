@@ -13,8 +13,8 @@
           %tr
             %th Name
             %th Questions
-            %th 
-            %th 
+            %th
+            %th
         %tbody
           - tests.each do |test|
             %tr{id: "tests_#{test.id}"}
@@ -25,7 +25,13 @@
               %td 
                 = link_to edit_users_test_path(test), class: 'btn btn-sm btn-info' do
                   Edit
-              %td 
-                = link_to users_test_path(test), target: '_blank', class: 'btn btn-sm btn-info' do
-                  random test
+              %td
+                = simple_form_for :user, url: users_test_path(test), method: 'GET' do |f|
+                  Number of Qestions
+                  = f.select :questions, (1..test.questions.count).reverse_each {|t| [t,t]}, include_blank: 'All', label: 'Number Of Questions'
+                  %br
+                  Number of Tests
+                  = f.select :tests, (1..100).reverse_each {|t| [t,t]}, include_blank: 'All'
+                  %br
+                  = f.button :submit,'Generate Test', class: 'btn btn-sm btn-info pull-right', disable_with: 'Creating...'
 
