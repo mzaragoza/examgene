@@ -23,7 +23,8 @@ gem 'friendly_id', '~> 5.1.0'                                                   
 gem 'jbuilder', '~> 2.0'                                                             # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jquery-rails'                                                                   # Use jquery as the JavaScript library
 gem 'turbolinks'                                                                     # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks (catching system)
-
+gem 'wicked_pdf'                                                                     # serve a PDF file to a user from HTML
+gem 'wkhtmltopdf-binary'                                                             # needed by wicked_pdf
 
 # Images
 gem 'carrierwave'

@@ -12,4 +12,5 @@ class ApplicationController < ActionController::Base
       current_user.account
     end
   }
+
 end

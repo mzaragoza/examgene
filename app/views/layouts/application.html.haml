@@ -62,8 +62,9 @@
           %a{"data-nav-section" => "pricing", :href => "#"} Pricing
         %li
           %a{"data-nav-section" => "faqs", :href => "#"} FAQs
-        %li
-          = link_to 'Log In', users_dashboard_path
+        - if current_user
+          %li
+            = link_to 'Log In', users_dashboard_path
       %h3.fh5co-lead Connect with us
       %p.fh5co-social-icons
         %a{:href => "#"}

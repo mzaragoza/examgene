@@ -1,22 +1,28 @@
-- @tests.times do |t|
-  %h1= test.name
-  %br
-  %br
-  - test.shuffle_questions.first(@questions).each_with_index do |question, question_index|
-    %strong
-      #{question_index + 1})
-      = question.name
-      - if question.photo_url.present?
-        = image_tag question.photo_url(:p250x250)
-    %br
-    - question.shuffle_answers.each_with_index do |answer, answer_index|
-      = radio_button_tag 'receive_updates', 'no', true, disabled: true
-      = answer.name
-      - if answer.photo_url.present?
-        = image_tag answer.photo_url(:p250x250)
+!!!
+%html
+  %head
+    = stylesheet_link_tag    '/assets/css/bootstrap.min', media: 'all', 'data-turbolinks-track' => true
+
+  %body
+    - @tests.times do |t|
+      %h1= test.name
       %br
       %br
-    %br
-    %br
-    V#{t+1}
-  %hr
+      - test.shuffle_questions.first(@questions).each_with_index do |question, question_index|
+        %strong
+          #{question_index + 1})
+          = question.name
+          - if question.photo_url.present?
+            = image_tag question.photo_url(:p250x250)
+        %br
+        - question.shuffle_answers.each_with_index do |answer, answer_index|
+          = radio_button_tag 'receive_updates', 'no', true, disabled: true
+          = answer.name
+          - if answer.photo_url.present?
+            = image_tag answer.photo_url(:p250x250)
+          %br
+          %br
+        %br
+        %br
+      V#{t+1}
+      %hr

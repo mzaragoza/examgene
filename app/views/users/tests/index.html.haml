@@ -33,5 +33,10 @@
                   Number of Tests
                   = f.select :tests, (1..100).reverse_each {|t| [t,t]}, include_blank: 'All'
                   %br
-                  = f.button :submit,'Generate Test', class: 'btn btn-sm btn-info pull-right', disable_with: 'Creating...'
+                  = f.button :submit,'Generate Test', class: 'btn btn-sm btn-info pull-right popup', disable_with: 'Creating...'
 
+:javascript
+  $('.popup').click(function(e) {
+    e.preventDefault();
+    $(this).closest('form').attr('target', '_blank').submit()
+  });

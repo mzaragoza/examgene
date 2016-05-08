@@ -11,6 +11,12 @@ class Users::TestsController < UserController
     if @tests == 0
       @tests = 1
     end
+    # respond_to do |format|
+    #   format.html
+    #   format.pdf do
+    #     render pdf: "file_name"   # Excluding ".pdf" extension.
+    #   end
+    # end
     render layout: false
   end
 
