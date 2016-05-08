@@ -27,6 +27,9 @@
                   Edit
               %td
                 = simple_form_for :user, url: users_test_path(test), method: 'GET' do |f|
+                  Randomize Question and Answers
+                  = check_box_tag 'user[randomize]', 'yes', true
+                  %br
                   Number of Qestions
                   = f.select :questions, (1..test.questions.count).reverse_each {|t| [t,t]}, include_blank: 'All', label: 'Number Of Questions'
                   %br
