@@ -7,3 +7,4 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 FactoryGirl.create(:manager, email: 'admin@test.com')
+FactoryGirl.create(:plan, name: 'Starter')

@@ -11,7 +11,19 @@ class Users::TestsController < UserController
     if @tests == 0
       @tests = 1
     end
+    @randomize = params[:user][:randomize].to_s
+    if @randomize == 'yes'
+      @randomize = true
+    else
+      @randomize = false
+    end
+
     render layout: false
+  end
+
+  def new
+    test = Test.new
+    test.questions.build
   end
 
   def create
