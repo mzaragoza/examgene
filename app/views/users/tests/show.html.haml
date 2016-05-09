@@ -7,13 +7,33 @@
         .new_page {page-break-after: always;}
       }
   %body
-    - @tests.times do |t|
-      %h3.pull-right= test.name
-      - if @randomize
-        = render 'random_test', :locals => {:t => t}
-      - else
-        = render 'test'
-      -#.divFooter
-        .pull-right 
-          V#{t+1}
-      .new_page
+    .container
+      - @tests.times do |t|
+        %h3.pull-right= test.name
+        .col-md-6
+          .pull-left Name:_________________________________________ 
+          .pull-right Date:____________________
+        - test.shuffle_questions({randomize: @randomize}).first(@questions).each_with_index do |question, question_index|
+          .row
+          %strong
+            #{question_index + 1})
+            = question.name
+            - if question.photo_url.present?
+              .row
+              = image_tag question.photo_url(:p250x250)
+          .row
+          - if question.shuffle_answers.count == 0
+            .spacing{style: 'padding: 100px;'}
+          - else
+            - question.shuffle_answers({randomize: @randomize}).each_with_index do |answer, answer_index|
+              = radio_button_tag answer.name, 'no', false, disabled: true
+              = answer.name
+              .row
+              - if answer.photo_url.present?
+                .row
+                  = image_tag answer.photo_url(:p250x250)
+            .spacing{style: 'padding: 10px;'}
+        -#.divFooter
+          .pull-right 
+            V#{t+1}
+        .new_page

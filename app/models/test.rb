@@ -6,7 +6,11 @@ class Test < ActiveRecord::Base
   validates :name, presence: true
   accepts_nested_attributes_for :questions
 
-  def shuffle_questions
-    questions.shuffle()
+  def shuffle_questions(options ={})
+    if options[:randomize]
+      questions.shuffle
+    else
+      questions
+    end
   end
 end
