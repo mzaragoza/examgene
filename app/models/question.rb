@@ -7,7 +7,11 @@ class Question < ActiveRecord::Base
 
   mount_uploader :photo,         ImageUploader
 
-  def shuffle_answers
-    answers.shuffle()
+  def shuffle_answers(options ={})
+    if options[:randomize]
+      answers.shuffle()
+    else
+      answers
+    end
   end
 end
