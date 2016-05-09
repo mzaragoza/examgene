@@ -11,11 +11,11 @@
     .spacing{style: 'padding: 100px;'}
   - else
     - question.shuffle_answers.each_with_index do |answer, answer_index|
-      .row
-      = radio_button_tag answer.name, 'no', false, disabled: true
-      = answer.name
-      .row
-      - if answer.photo_url.present?
-      .row
-        = image_tag answer.photo_url(:p250x250)
+      .col-md-6
+        = radio_button_tag answer.name, 'no', false, disabled: true
+        = answer.name
+        .row
+        - if answer.photo_url.present?
+          .row
+            = image_tag answer.photo_url(:p250x250)
     .spacing{style: 'padding: 10px;'}
