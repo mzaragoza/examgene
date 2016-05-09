@@ -8,15 +8,12 @@
       }
   %body
     - @tests.times do |t|
-      .hidden-print
-        %h3= test.name
+      %h3.pull-right= test.name
       - if @randomize
         = render 'random_test', :locals => {:t => t}
       - else
         = render 'test'
-      %br
-      %br
-      .divFooter
+      -#.divFooter
         .pull-right 
           V#{t+1}
       .new_page
