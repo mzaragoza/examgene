@@ -7,9 +7,10 @@ class ApplicationController < ActionController::Base
     strategy DecentExposure::StrongParametersStrategy
   end
 
-  expose(:current_account){
-    if current_user
-      current_user.account
-    end
-  }
+#  expose(:current_account){
+#    if current_user
+#      current_user.account
+#    end
+#  }
+
 end

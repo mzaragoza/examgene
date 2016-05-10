@@ -24,7 +24,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def after_sign_up_path_for(resource)
     session[:just_registered] = true
     sign_in(resource)
-    users_root_path
+    users_root_url(:subdomain =>resource.account.domain)
   end
 
   private

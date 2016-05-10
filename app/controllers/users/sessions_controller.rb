@@ -3,7 +3,6 @@ class Users::SessionsController < Devise::SessionsController
 
   private
   def after_sign_in_path_for(resource)
-    session[:just_logged_in] = true
-    users_root_path
+    users_root_url(:subdomain =>resource.account.domain)
   end
 end
