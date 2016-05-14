@@ -16,6 +16,7 @@ gem 'uglifier', '>= 1.3.0'                                                      
 gem 'coffee-rails', '~> 4.1.0'                                                       # Use CoffeeScript for .coffee assets and views
 # gem 'therubyracer', platforms: :ruby                                               # See https://github.com/rails/execjs#readme for more supported runtimes
 
+gem "cocoon"                                                                         # Dynamic nested forms using jQuery made easy
 gem 'simple_form'
 gem "font-awesome-rails"                                                             # load font-awesome-rails
 gem "haml-rails", "~> 0.9"                                                           # templating engine

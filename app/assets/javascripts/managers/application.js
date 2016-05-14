@@ -20,6 +20,7 @@
 //= require js/waves
 //= require js/wow.min
 //= require js/jquery.nicescroll
+//= require cocoon
 //
 //= require plugins/datatables/jquery.dataTables.min
 //= require plugins/datatables/dataTables.bootstrap
