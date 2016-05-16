@@ -45,6 +45,7 @@ group :development, :test do
   gem "ffaker"                                                                         # A library for generating fake data
   # RSpec
   # gem 'capistrano-rails'                # Use Capistrano for deployment
+  gem 'meta_request'
 end
 
 group :test do

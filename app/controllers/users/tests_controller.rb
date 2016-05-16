@@ -2,24 +2,24 @@ class Users::TestsController < UserController
   expose(:tests){ current_account.tests.order('ID DESC') }
   expose(:test, attributes: :test_params)
 
-  def show
-    @questions = params[:user][:questions].to_i
-    if @questions == 0
-      @questions = test.questions.count
-    end
-    @tests = params[:user][:tests].to_i
-    if @tests == 0
-      @tests = 1
-    end
-    @randomize = params[:user][:randomize].to_s
-    if @randomize == 'yes'
-      @randomize = true
-    else
-      @randomize = false
-    end
-
-    render layout: false
-  end
+# def show
+#   @questions = params[:user][:questions].to_i
+#   if @questions == 0
+#     @questions = test.questions.count
+#   end
+#   @tests = params[:user][:tests].to_i
+#   if @tests == 0
+#     @tests = 1
+#   end
+#   @randomize = params[:user][:randomize].to_s
+#   if @randomize == 'yes'
+#     @randomize = true
+#   else
+#     @randomize = false
+#   end
+#
+#   render layout: false
+# end
 
   def new
     @test = Test.new
@@ -46,6 +46,7 @@ class Users::TestsController < UserController
       flash[:notice] = t(:test_was_successfully_updated)
       redirect_to users_tests_path
     else
+      @test = test
       render :edit
     end
   end
@@ -55,6 +56,7 @@ class Users::TestsController < UserController
     params.require(:test).permit(
       :name,
       questions_attributes: [
+        :id,
         :name,
         :photo
       ]
