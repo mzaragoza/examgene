@@ -6,6 +6,18 @@
           %label.col-md-2.control-label Name
           .col-md-10
             = f.input :name, label: false
+        = f.simple_fields_for :questions do |question_form|
+          .form-group
+            %label.col-md-2.control-label Question
+            .col-md-10
+              = question_form.input :name, label: false
+          .form-group
+            %label.col-md-2.control-label Image
+            .col-md-10
+              = question_form.input :photo, label: false
+              - if question_form.object.photo_url.present?
+                %br
+                = image_tag question_form.object.photo_url(:p100x100)
         .form-group
           %label 
           = f.button :submit, class: 'btn btn-primary btn-large pull-right', disable_with: 'Creating...'

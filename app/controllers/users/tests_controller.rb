@@ -22,7 +22,6 @@ class Users::TestsController < UserController
   end
 
   def new
-    test = Test.new
     test.questions.build
   end
 
@@ -50,6 +49,11 @@ class Users::TestsController < UserController
   def test_params
     params.require(:test).permit(
       :name,
+      questions_attributes: [
+        :id,
+        :name,
+        :photo
+      ]
     )
   end
 
